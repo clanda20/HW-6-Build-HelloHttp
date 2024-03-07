@@ -43,13 +43,12 @@ build {
     inline = [
       "ls /home/ubuntu",
       "echo 'Install packages with apt'",
-      "sudo apt install python3 -y",
       "sudo apt update -y",
       "sudo apt install python3-pip -y",
+      "sudo apt install gcc -y",
       "sudo snap install redis",
-      "echo 'Install python pacakges with pip'",
-      "sudo pip3 install -r app_files/requirements.txt",
-      "echo 'Setup the my app service with systemd'",
+      "sudo gcc -o dummyserv app_files/dummy_serv.c",
+      "echo 'Setup the my app service with system'",
       "sudo cp /home/ubuntu/app_files/myapp.service /etc/systemd/system/myapp.service",
       "sudo systemctl enable myapp",
     ]
@@ -61,7 +60,7 @@ build {
 
 variable "my_region" {
   type = string
-  default = "us-east-2"
+  default = "us-east-1"
 }
 
 variable "source_ami_name" {
